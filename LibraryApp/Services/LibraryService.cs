@@ -2,6 +2,7 @@
 
 using LibraryApp.Exceptions;
 using LibraryApp.Models;
+using LibraryApp.Test;
 
 namespace LibraryApp.Services
 {
@@ -10,7 +11,20 @@ namespace LibraryApp.Services
         private readonly IBookService _bookService;
         private readonly IDeliveryService _deliveryService;
         private readonly IPurchaseService _purchaseService;
+        private FakeBookService fakeBookService;
+        private FakeDeliveryService fakeDeliveryService;
+        private FakePurchaseService fakePurchaseService;
 
+        public LibraryService()
+        {
+        }
+
+        public LibraryService(FakeBookService fakeBookService, FakeDeliveryService fakeDeliveryService, FakePurchaseService fakePurchaseService)
+        {
+            this.fakeBookService = fakeBookService;
+            this.fakeDeliveryService = fakeDeliveryService;
+            this.fakePurchaseService = fakePurchaseService;
+        }
 
         public void DoPurchaseCalculation(Book book)
         {

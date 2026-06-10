@@ -11,5 +11,7 @@ namespace LibraryApp.Models
 
         public double Price { get; set; }
         public int NumberOfCopies { get; set; }
+
+        
     }
 }
